@@ -50,3 +50,13 @@
 	color: white;
 	cursor: pointer;
 }
+
+@media (max-width: 760px) {
+	.products {
+		grid-template-columns: 1fr;
+	}
+
+	.shopTitle {
+		font-size: 32px;
+	}
+}
