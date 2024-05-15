@@ -52,6 +52,18 @@
   cursor: pointer;
 }
 
+.amount {
+  display: flex;
+}
+
+.amount button {
+  width: 20px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (max-width: 760px) {
   .products {
     grid-template-columns: 1fr;

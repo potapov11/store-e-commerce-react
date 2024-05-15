@@ -4,7 +4,7 @@ import "./cart.css";
 import { PRODUCTS } from "../../product";
 
 export function Cart() {
-  const { cartItems } = useContext(ShopContext);
+  const { cartItems, addToCart, removeFromCart } = useContext(ShopContext);
 
   const cartItemsList = PRODUCTS.filter((product) => {
     if (cartItems[product.id] > 0) {
@@ -13,8 +13,6 @@ export function Cart() {
     }
     return null;
   });
-
-  console.log(cartItemsList, "...cartItemsList...");
 
   return (
     <div className="products">
@@ -29,9 +27,21 @@ export function Cart() {
               <p>${item.price}</p>
             </div>
             <div className="amount">
-              <button className="btn-decrease">-</button>
+              <button
+                className="btn-decrease"
+                style={{ marginRight: "10px" }}
+                onClick={() => removeFromCart(item.id)}
+              >
+                -
+              </button>
               <span>{item.amount}</span>
-              <button className="btn-increase">+</button>
+              <button
+                className="btn-increase"
+                style={{ marginLeft: "10px" }}
+                onClick={() => addToCart(item.id)}
+              >
+                +
+              </button>
             </div>
           </div>
         ))
