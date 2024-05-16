@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { ShopContext } from "../../context/shop-context";
 import "./cart.css";
 import { PRODUCTS } from "../../product";
 
 export function Cart() {
   const { cartItems, addToCart, removeFromCart } = useContext(ShopContext);
+  const [oneProducte, setOneProducte] = useState(false);
 
   const cartItemsList = PRODUCTS.filter((product) => {
     if (cartItems[product.id] > 0) {
@@ -14,11 +15,28 @@ export function Cart() {
     return null;
   });
 
+  function checkIsOne(num) {
+    if (num == 1) {
+      setOneProducte(true);
+      alert(true);
+    }
+  }
+
+  let totalAmount = 0;
+
+  cartItemsList.forEach((item) => {
+    totalAmount += item.amount * item.price;
+    console.log(totalAmount);
+  });
+
   return (
     <div className="products">
       {cartItemsList.length ? (
         cartItemsList.map((item) => (
           <div key={item.id} className="product">
+            {/* <div className="deleteLayer">
+              уверены что хотите удалить товар из корзины?
+            </div> */}
             <img src={item.productImage} alt="product-img" />
             <div className="description">
               <b>
@@ -30,7 +48,10 @@ export function Cart() {
               <button
                 className="btn-decrease"
                 style={{ marginRight: "10px" }}
-                onClick={() => removeFromCart(item.id)}
+                onClick={() => {
+                  removeFromCart(item.id);
+                  checkIsOne(item.amount);
+                }}
               >
                 -
               </button>
@@ -38,7 +59,9 @@ export function Cart() {
               <button
                 className="btn-increase"
                 style={{ marginLeft: "10px" }}
-                onClick={() => addToCart(item.id)}
+                onClick={() => {
+                  addToCart(item.id);
+                }}
               >
                 +
               </button>
@@ -46,8 +69,9 @@ export function Cart() {
           </div>
         ))
       ) : (
-        <p>Корзина пуста</p>
+        <p className="empty-cart">Корзина пуста</p>
       )}
+      {cartItemsList.length > 0 && <p className="total-sum">Общая сумма: {totalAmount}</p>}
     </div>
   );
 }

@@ -11,7 +11,7 @@ export const PRODUCTS = [
   {
     id: 1,
     productName: "IPhone",
-    price: 999.0,
+    price: 1000,
     productImage: img1,
   },
   {

@@ -4,6 +4,7 @@
   font-size: 40px;
 }
 .products {
+  position: relative;
   margin-top: 200px;
   width: 100%;
   height: auto;
@@ -62,6 +63,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.total-sum {
+  position: absolute;
+  bottom: -20px;
+  right: 100px;
+}
+
+.empty-cart {
+  display: grid;
+  grid-column: 1 / -1;
+  width: 100%;
+  text-align: center;
+  font-size: 40px;
 }
 
 @media (max-width: 760px) {

@@ -20,6 +20,7 @@ const defaultCart = () => {
 
 export function ShopContextProvider(props) {
   const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem("produtcsLS") || defaultCart()));
+  const [oneProducte, setOneProducte] = useState(false);
 
   const addToCart = (itemId) => {
     setCartItems((prev) => {
@@ -31,7 +32,12 @@ export function ShopContextProvider(props) {
   const removeFromCart = (itemId) => {
     setCartItems((prev) => {
       localStorage.setItem("produtcsLS", JSON.stringify({ ...prev, [itemId]: prev[itemId] - 1 }));
-      return { ...prev, [itemId]: prev[itemId] - 1 };
+      // if (prev[itemId] - 1 == 1) {
+      //   setOneProducte(true);
+      //   alert(true);
+      // }
+
+      return { ...prev, [itemId]: prev[itemId] - 1 == 0 ? 1 : prev[itemId] - 1 };
     });
   };
 
