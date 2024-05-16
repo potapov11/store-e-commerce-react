@@ -8,23 +8,31 @@ export const ShopContext = createContext(null);
 //!<MyApp />
 //!</ShopContextProvider
 
+console.log(PRODUCTS.length);
+
 const defaultCart = () => {
   let cart = {};
-  for (let i = 1; i < PRODUCTS.length; i++) {
+  for (let i = 1; i <= PRODUCTS.length; i++) {
     cart[i] = 0;
   }
   return cart;
 };
 
 export function ShopContextProvider(props) {
-  const [cartItems, setCartItems] = useState(defaultCart());
+  const [cartItems, setCartItems] = useState(JSON.parse(localStorage.getItem("produtcsLS") || defaultCart()));
 
   const addToCart = (itemId) => {
-    setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
+    setCartItems((prev) => {
+      localStorage.setItem("produtcsLS", JSON.stringify({ ...prev, [itemId]: prev[itemId] + 1 }));
+      return { ...prev, [itemId]: prev[itemId] + 1 };
+    });
   };
 
   const removeFromCart = (itemId) => {
-    setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
+    setCartItems((prev) => {
+      localStorage.setItem("produtcsLS", JSON.stringify({ ...prev, [itemId]: prev[itemId] - 1 }));
+      return { ...prev, [itemId]: prev[itemId] - 1 };
+    });
   };
 
   //!Новое состояние корзины создается с помощью оператора распространения ({...prev}) - это копирует все существующие свойства предыдущего состояния корзины.
@@ -32,9 +40,5 @@ export function ShopContextProvider(props) {
 
   const contextValue = { cartItems, addToCart, removeFromCart };
 
-  return (
-    <ShopContext.Provider value={contextValue}>
-      {props.children}
-    </ShopContext.Provider>
-  );
+  return <ShopContext.Provider value={contextValue}>{props.children}</ShopContext.Provider>;
 }
