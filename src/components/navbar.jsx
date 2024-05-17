@@ -9,7 +9,10 @@ export function Navbar() {
 
   console.log(cartItems, "..cartItems..");
 
-  let res = Object.values(cartItems).reduce((aсс, item) => aсс + item, 0);
+  let res;
+  if (cartItems) {
+    res = Object.values(cartItems).reduce((aсс, item) => aсс + item, 0);
+  }
 
   return (
     <div className="navbar">

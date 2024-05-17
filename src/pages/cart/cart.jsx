@@ -4,39 +4,41 @@ import "./cart.css";
 import { PRODUCTS } from "../../product";
 
 export function Cart() {
-  const { cartItems, addToCart, removeFromCart } = useContext(ShopContext);
-  const [oneProducte, setOneProducte] = useState(false);
+  const { cartItems, addToCart, removeFromCart, deleteLastProduct, oneProducte, setOneProducte, idItem } = useContext(ShopContext);
+
+  let totalAmount = 0;
 
   const cartItemsList = PRODUCTS.filter((product) => {
-    if (cartItems[product.id] > 0) {
+    if (cartItems[product.id] && cartItems[product.id] > 0) {
       product.amount = cartItems[product.id];
       return product;
     }
     return null;
   });
 
-  function checkIsOne(num) {
-    if (num == 1) {
-      setOneProducte(true);
-      alert(true);
-    }
-  }
-
-  let totalAmount = 0;
-
   cartItemsList.forEach((item) => {
     totalAmount += item.amount * item.price;
     console.log(totalAmount);
   });
 
+  function checkIsOne(num) {
+    if (num == 1) {
+      setOneProducte((prev) => (prev = true));
+    }
+  }
+
   return (
     <div className="products">
       {cartItemsList.length ? (
         cartItemsList.map((item) => (
-          <div key={item.id} className="product">
-            {/* <div className="deleteLayer">
-              уверены что хотите удалить товар из корзины?
-            </div> */}
+          <div key={item.id} className="product product-one">
+            <div className={oneProducte && item.amount == 1 ? "inner-layer inner-layer-show" : "inner-layer inner-layer-hide"}>
+              <p>удалить товар</p>
+              <div className="btn-group">
+                <button onClick={(e) => deleteLastProduct(e, item.id)}>Yes</button>
+                <button>No</button>
+              </div>
+            </div>
             <img src={item.productImage} alt="product-img" />
             <div className="description">
               <b>
@@ -49,8 +51,8 @@ export function Cart() {
                 className="btn-decrease"
                 style={{ marginRight: "10px" }}
                 onClick={() => {
-                  removeFromCart(item.id);
                   checkIsOne(item.amount);
+                  removeFromCart(item.id);
                 }}
               >
                 -

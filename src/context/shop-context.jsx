@@ -29,22 +29,33 @@ export function ShopContextProvider(props) {
     });
   };
 
+  function deleteLastProduct(e, id) {
+    if (e.target.textContent == "Yes") {
+      removeFromCart(id);
+    }
+  }
+
   const removeFromCart = (itemId) => {
     setCartItems((prev) => {
-      localStorage.setItem("produtcsLS", JSON.stringify({ ...prev, [itemId]: prev[itemId] - 1 }));
-      // if (prev[itemId] - 1 == 1) {
-      //   setOneProducte(true);
-      //   alert(true);
+      // if (prev[itemId] !== undefined) {
+      if (!oneProducte) {
+        console.log("if-here");
+        localStorage.setItem("produtcsLS", JSON.stringify({ ...prev, [itemId]: prev[itemId] - 1 == 0 ? 1 : prev[itemId] - 1 }));
+        return { ...prev, [itemId]: prev[itemId] - 1 == 0 ? 1 : prev[itemId] - 1 };
+      } else {
+        localStorage.setItem("produtcsLS", JSON.stringify({ ...prev, [itemId]: prev[itemId] - 1 }));
+        return { ...prev, [itemId]: prev[itemId] - 1 };
+      }
+      // } else {
+      //   return prev;
       // }
-
-      return { ...prev, [itemId]: prev[itemId] - 1 == 0 ? 1 : prev[itemId] - 1 };
     });
   };
 
   //!Новое состояние корзины создается с помощью оператора распространения ({...prev}) - это копирует все существующие свойства предыдущего состояния корзины.
   //!Затем, для элемента с идентификатором itemId, значение этого элемента увеличивается на 1. Это делается с помощью синтаксиса вычисляемых свойств [itemId], который позволяет динамически обращаться к свойству объекта по значению переменной itemId.
 
-  const contextValue = { cartItems, addToCart, removeFromCart };
+  const contextValue = { cartItems, addToCart, removeFromCart, oneProducte, deleteLastProduct, setOneProducte };
 
   return <ShopContext.Provider value={contextValue}>{props.children}</ShopContext.Provider>;
 }
