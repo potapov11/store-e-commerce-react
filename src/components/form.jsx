@@ -1,7 +1,19 @@
 import './form.css';
+import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
 export function Form() {
+	const [showForm, setShowForm] = useState(false);
+
+	useEffect(() => {
+		const timer = setTimeout(() => {
+			setShowForm(true);
+		}, 10000);
+
+		// Очистка таймера при размонтировании компонента
+		return () => clearTimeout(timer);
+	}, []);
+
 	const {
 		register,
 		handleSubmit,
@@ -17,7 +29,7 @@ export function Form() {
 	// console.log(watch('example')); // watch input value by passing the name of it
 
 	return (
-		<div className="form__modal">
+		<div className={showForm ? 'form__modal' : 'form__modal hide'}>
 			<div className="form__inner-modal">
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<label>

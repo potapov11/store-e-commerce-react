@@ -21,6 +21,10 @@ form {
 	}
 }
 
+div.hide {
+	display: none;
+}
+
 .form__modal {
 	position: fixed;
 	top: 0;
