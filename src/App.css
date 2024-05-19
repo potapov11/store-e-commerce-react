@@ -2,3 +2,14 @@
 	max-width: 1400px;
 	margin: 0 auto;
 }
+
+.no_highlight {
+	/* Уничтожаем синюю подсветку без следа */
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+	/* Предотвращаем появление контекстного меню */
+	-webkit-touch-callout: none;
+	/* Запрещаем выделение текста для защиты контента */
+	-webkit-user-select: none;
+	/* Курсор указывает на интерактивность */
+	cursor: pointer;
+}

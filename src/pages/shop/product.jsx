@@ -8,7 +8,7 @@ export function Product(props) {
 	const { id, productName, price, productImage } = data;
 
 	return (
-		<div className="product">
+		<div className="product no_highlight">
 			<img src={productImage} alt="product-img" />
 			<div className="description">
 				<b>
