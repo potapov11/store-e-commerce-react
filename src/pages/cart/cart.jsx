@@ -18,8 +18,10 @@ export function Cart() {
 
 	cartItemsList.forEach((item) => {
 		totalAmount += item.amount * item.price;
-		console.log(totalAmount);
+		// totalAmount.toFixed(1);
 	});
+
+	totalAmount = Number(totalAmount.toFixed(2));
 
 	function checkIsOne(num) {
 		if (num == 1) {

@@ -68,6 +68,8 @@
 }
 
 .total-sum {
+	font-size: large;
+	font-weight: 700;
 	position: absolute;
 	bottom: -20px;
 	right: 100px;
@@ -131,5 +133,14 @@
 
 	.shopTitle {
 		font-size: 32px;
+	}
+
+	.total-sum {
+		position: fixed;
+		right: initial;
+		top: 35px;
+		color: white;
+		z-index: 3000;
+		height: fit-content;
 	}
 }

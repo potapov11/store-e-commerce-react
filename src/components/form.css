@@ -25,6 +25,22 @@ div.hide {
 	display: none;
 }
 
+.modal__close {
+	position: absolute;
+	top: 125px;
+	right: 25px;
+	cursor: pointer;
+	transition: all 0.5s ease;
+}
+
+.modal__close:hover {
+	transform: rotate(90deg);
+}
+
+.form_btn {
+	cursor: pointer;
+}
+
 .form__modal {
 	position: fixed;
 	top: 0;
@@ -36,6 +52,15 @@ div.hide {
 	justify-content: space-between;
 	align-items: center;
 	z-index: 100;
+}
+
+.form__text {
+	position: absolute;
+	top: -110px;
+	left: 0;
+	text-align: center;
+	font-weight: 600;
+	text-transform: uppercase;
 }
 
 .form__inner-modal {
