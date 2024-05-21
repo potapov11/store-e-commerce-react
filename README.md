@@ -22,10 +22,8 @@
 
 <br>
 <br>
-Чтобы запустить проект локально, следуйте этим шагам:
 
 <strong>ДЛЯ СТАРТА ПРОЕКТА</strong><br>
 git clone<br>
 npm install<br>
 npm run dev<br>
-Откройте приложение в своем браузере по адресу http://localhost:3000.
