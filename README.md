@@ -21,6 +21,7 @@
 *React Hook Form<br>
 *Notistack (для модальной формы и уведомлений)<br>
 *Phosphor React (для иконок)<br>
+*Display grid-flex, Bem<br>
 
 <br>
 <br>
