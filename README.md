@@ -12,14 +12,13 @@
 ><br>Приложение разработано с учетом отзывчивости и доступности на различных устройствах.<br>
 <br>
 <br>
-<b>Используемые Технологии</b>
-React.js<br>
-React Router<br>
-React Context API<br>
-React Hook Form<br>
-Notistack (для модальной формы и уведомлений)<br>
-Phosphor React (для иконок)<br>
-CSS<br>
+<b>Используемые Технологии</b><br>
+*React.js<br>
+*React Router<br>
+*React Context API<br>
+*React Hook Form<br>
+*Notistack (для модальной формы и уведомлений)<br>
+*Phosphor React (для иконок)<br>
 
 <br>
 <br>
