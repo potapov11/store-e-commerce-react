@@ -10,6 +10,11 @@ export function Shop() {
         <div className="shopTitle">
           <h1>Tecno-shop</h1>
         </div>
+        <select name="sort" id="sort">
+          <option value="plus-price">По возрастанию цены</option>
+          <option value="minus-price">По убыванию цены</option>
+          <option value="popul">По популярности</option>
+        </select>
         <div className="products">
           {PRODUCTS.map((product) => (
             <Product key={product.id} data={product} />
