@@ -7,8 +7,6 @@ import "./navbar.css";
 export function Navbar() {
   const { cartItems } = useContext(ShopContext);
 
-  console.log(cartItems, "..cartItems..");
-
   let res;
   if (cartItems) {
     res = Object.values(cartItems).reduce((aсс, item) => aсс + item, 0);
