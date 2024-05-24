@@ -85,9 +85,20 @@
   width: 28%;
 }
 
-select {
+.sort-select {
   width: 100%;
   height: 45px;
+  margin-bottom: 12px;
+}
+
+.sort-input {
+  width: 100%;
+  height: 45px;
+}
+
+.sort-inner {
+  position: sticky;
+  top: 150px;
 }
 
 @media (max-width: 760px) {

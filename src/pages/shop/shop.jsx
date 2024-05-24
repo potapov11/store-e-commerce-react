@@ -10,6 +10,7 @@ const sortOptionsArr = [
 
 export function Shop() {
   const [lastSort, setLastSort] = useState("");
+  const [sortInputValue, setSortInputValue] = useState("");
 
   function handleChange(e) {
     setLastSort(e.target.value);
@@ -23,6 +24,12 @@ export function Shop() {
     }
   }
 
+  function setSortInput(e) {
+    setSortInputValue(e.target.value);
+  }
+
+  const filteredProducts = PRODUCTS.filter((item) => item.productName.toLowerCase().includes(sortInputValue.toLowerCase()));
+
   return (
     <div className="container">
       <div className="shop">
@@ -31,16 +38,17 @@ export function Shop() {
         </div>
         <div className="product-wrapper">
           <div className="sort-block">
-            <select name="sort" id="sort" onChange={handleChange}>
-              {sortOptionsArr.map((item) => (
-                <option value={item.value}>{item.text}</option>
-              ))}
-            </select>
+            <div className="sort-inner">
+              <select className="sort-select" name="sort" id="sort" onChange={handleChange}>
+                {sortOptionsArr.map((item) => (
+                  <option value={item.value}>{item.text}</option>
+                ))}
+              </select>
+              <input placeholder="Найдите нужный товар..." className="sort-input" type="text" value={sortInputValue} onChange={(e) => setSortInput(e)} />
+            </div>
           </div>
           <div className="products">
-            {PRODUCTS.map((product) => (
-              <Product key={product.id} data={product} />
-            ))}
+            {filteredProducts.length > 0 ? filteredProducts.map((product) => <Product key={product.id} data={product} />) : PRODUCTS.map((product) => <Product key={product.id} data={product} />)}
           </div>
         </div>
       </div>
