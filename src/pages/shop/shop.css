@@ -14,6 +14,8 @@
 .product {
   border-radius: 15px;
   width: 80%;
+  padding-left: 20px;
+  padding-right: 20px;
   margin-bottom: 30px;
   display: flex;
   flex-direction: column;
@@ -23,15 +25,40 @@
 
 .product img {
   width: 100%;
+  height: auto;
+}
+
+.product-info {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.product-wrapper {
+  display: flex;
 }
 
 .product .description {
+  width: 100%;
   text-align: center;
 }
 
 .product:hover {
   transition: 0.3s ease-in;
   cursor: pointer;
+}
+
+.product__rating {
+  display: flex;
+}
+
+.product__star {
+  display: block;
+  width: 25px;
+  height: 25px;
+  background-image: url("../../assets/img/star.svg");
+  background-size: cover;
 }
 
 .addToCartBttn {
@@ -49,6 +76,18 @@
   background-color: rgb(19, 19, 19);
   color: white;
   cursor: pointer;
+}
+
+/*SORT*/
+
+.sort-block {
+  padding-top: 100px;
+  width: 28%;
+}
+
+select {
+  width: 100%;
+  height: 45px;
 }
 
 @media (max-width: 760px) {
