@@ -6,23 +6,36 @@ const sortOptionsArr = [
   { value: "plus-sort", text: "сортировать по возрастанию цены" },
   { value: "minus-sort", text: "сортировать по убыванию цены" },
   { value: "rating-sort", text: "сортировать по рейтингу" },
+  // { value: "default", text: "по умолчанию" },
 ];
 
 export function Shop() {
   const [lastSort, setLastSort] = useState("");
   const [sortInputValue, setSortInputValue] = useState("");
+  const [showDropDown, setShowDropDown] = useState(false);
+  const [dropDownText, setDropdownText] = useState("По умолчанию");
 
   function handleChange(e) {
-    setLastSort(e.target.value);
+    setLastSort(e.target.textContent, "..e.target.textContent..");
 
-    if (e.target.value === "minus-sort") {
+    if (e.target.textContent === "сортировать по убыванию цены") {
       PRODUCTS.sort((a, b) => a.price - b.price);
-    } else if (e.target.value === "plus-sort") {
+    } else if (e.target.textContent === "сортировать по возрастанию цены") {
       PRODUCTS.sort((a, b) => b.price - a.price);
-    } else if (e.target.value === "rating-sort") {
+    } else if (e.target.textContent === "сортировать по рейтингу") {
       PRODUCTS.sort((a, b) => b.rating - a.rating);
     }
   }
+
+  function changeDropdOwnText(e) {
+    console.log(e.target);
+    console.log(e.target.textContent);
+    setDropdownText(e.target.textContent);
+  }
+
+  // useEffect((e) => {
+  //   handleChange;
+  // }, [dropDownText]);
 
   function setSortInput(e) {
     setSortInputValue(e.target.value);
@@ -39,12 +52,21 @@ export function Shop() {
         <div className="product-wrapper">
           <div className="sort-block">
             <div className="sort-inner">
-              <select className="sort-select" name="sort" id="sort" onChange={handleChange}>
+              <div
+                className={showDropDown ? "sort-select _opened" : "sort-select"}
+                name="sort"
+                id="sort"
+                onClick={(e) => {
+                  handleChange(e);
+                  setShowDropDown(!showDropDown);
+                }}
+              >
+                <span className="sort-span">{dropDownText}</span>
                 {sortOptionsArr.map((item) => (
-                  <option value={item.value}>{item.text}</option>
+                  <div onClick={(e) => changeDropdOwnText(e)}>{item.text}</div>
                 ))}
-              </select>
-              <input placeholder="Найдите нужный товар..." className="sort-input" type="text" value={sortInputValue} onChange={(e) => setSortInput(e)} />
+              </div>
+              {/* <input placeholder="Найдите нужный товар..." className="sort-input" type="text" value={sortInputValue} onChange={(e) => setSortInput(e)} /> */}
             </div>
           </div>
           <div className="products">
