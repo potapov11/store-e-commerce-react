@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { PRODUCTS } from "../../product";
 import { Product } from "./product";
 import { MagnifyingGlass } from "phosphor-react";
@@ -8,11 +8,10 @@ const sortOptionsArr = [
   { value: "plus-sort", text: "сортировать по возрастанию цены" },
   { value: "minus-sort", text: "сортировать по убыванию цены" },
   { value: "rating-sort", text: "сортировать по рейтингу" },
-  // { value: "default", text: "по умолчанию" },
 ];
 
 export function Shop() {
-  const [lastSort, setLastSort] = useState("");
+  // const [lastSort, setLastSort] = useState("");
   const [checkedCheckBox, setCheckedCheckBox] = useState(false);
   const [sortInputValue, setSortInputValue] = useState("");
   const [showDropDown, setShowDropDown] = useState(false);
@@ -20,17 +19,15 @@ export function Shop() {
   const [currentProducts, setCurrentProducts] = useState(PRODUCTS);
 
   const refSort = useRef(null);
-  useOnClickOutside(refSort, () => setShowForm(false));
+  useOnClickOutside(refSort, () => setShowDropDown(false));
 
   function handleChange(e) {
-    setLastSort(e.target.textContent, "..e.target.textContent..");
-
     if (e.target.textContent === "сортировать по убыванию цены") {
-      PRODUCTS.sort((a, b) => a.price - b.price);
+      setCurrentProducts(PRODUCTS.sort((a, b) => a.price - b.price));
     } else if (e.target.textContent === "сортировать по возрастанию цены") {
-      PRODUCTS.sort((a, b) => b.price - a.price);
+      setCurrentProducts(PRODUCTS.sort((a, b) => b.price - a.price));
     } else if (e.target.textContent === "сортировать по рейтингу") {
-      PRODUCTS.sort((a, b) => b.rating - a.rating);
+      setCurrentProducts(PRODUCTS.sort((a, b) => b.rating - a.rating));
     }
   }
 
@@ -40,16 +37,15 @@ export function Shop() {
     setDropdownText(e.target.textContent);
   }
 
-  // useEffect((e) => {
-  //   handleChange;
-  // }, [dropDownText]);
-
-  function setSortInput(e) {
-    setSortInputValue(e.target.value);
+  function setDateFilteredProducts(e) {
+    const dateFilteredProducts = PRODUCTS.filter((item) => item.today === true);
+    if (e.target.checked == true) {
+      setCurrentProducts(dateFilteredProducts);
+      setCheckedCheckBox(!e.target.checked);
+    } else {
+      setCurrentProducts(PRODUCTS);
+    }
   }
-
-  const filteredProducts = PRODUCTS.filter((item) => item.productName.toLowerCase().includes(sortInputValue.toLowerCase()));
-  const dateFilteredProducts = PRODUCTS.filter((item) => item.today === true);
 
   return (
     <div className="container">
@@ -83,8 +79,9 @@ export function Shop() {
                 <input
                   type="checkbox"
                   value={checkedCheckBox}
-                  onChange={() => {
-                    setCheckedCheckBox(!checkedCheckBox);
+                  onChange={(e) => {
+                    // setCheckedCheckBox(e);
+                    setDateFilteredProducts(e);
                   }}
                 />
               </label>
@@ -92,7 +89,9 @@ export function Shop() {
             </div>
           </div>
           <div className="products">
-            {filteredProducts.length > 0 ? filteredProducts.map((product) => <Product key={product.id} data={product} />) : PRODUCTS.map((product) => <Product key={product.id} data={product} />)}
+            {currentProducts.map((product) => (
+              <Product key={product.id} data={product} />
+            ))}
           </div>
         </div>
       </div>
