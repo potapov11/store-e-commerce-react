@@ -22,6 +22,7 @@ export const PRODUCTS = [
     productImage: img1,
     rating: 4.7,
     today: true,
+    type: "electro",
   },
   {
     id: 2,
@@ -30,6 +31,7 @@ export const PRODUCTS = [
     productImage: img2,
     rating: 4.3,
     today: true,
+    type: "electro",
   },
   {
     id: 3,
@@ -37,6 +39,7 @@ export const PRODUCTS = [
     price: 699.0,
     productImage: img3,
     rating: 4,
+    type: "electro",
   },
   {
     id: 4,
@@ -45,6 +48,7 @@ export const PRODUCTS = [
     productImage: img4,
     rating: 3.5,
     today: true,
+    type: "ropa",
   },
   {
     id: 5,
@@ -52,6 +56,7 @@ export const PRODUCTS = [
     price: 19.99,
     productImage: img5,
     rating: 3,
+    type: "electro",
   },
   {
     id: 6,
@@ -59,6 +64,7 @@ export const PRODUCTS = [
     price: 68.0,
     productImage: img6,
     rating: 2,
+    type: "ropa",
   },
   {
     id: 7,
@@ -81,6 +87,7 @@ export const PRODUCTS = [
     price: 63.0,
     productImage: img9,
     rating: 3.5,
+    type: "ropa",
   },
   {
     id: 10,
@@ -88,6 +95,7 @@ export const PRODUCTS = [
     price: 23.0,
     productImage: img10,
     rating: 4,
+    type: "toys",
   },
   {
     id: 11,
@@ -95,6 +103,7 @@ export const PRODUCTS = [
     price: 13.0,
     productImage: img11,
     rating: 3.5,
+    type: "toys",
   },
   {
     id: 12,
@@ -102,6 +111,7 @@ export const PRODUCTS = [
     price: 53.0,
     productImage: img12,
     rating: 4.5,
+    type: "forhome",
   },
   {
     id: 13,
@@ -109,6 +119,7 @@ export const PRODUCTS = [
     price: 33.0,
     productImage: img13,
     rating: 2.5,
+    type: "forhome",
   },
   {
     id: 14,
@@ -116,6 +127,7 @@ export const PRODUCTS = [
     price: 37.0,
     productImage: img14,
     rating: 5.6,
+    type: "forhome",
   },
   {
     id: 15,
@@ -123,5 +135,6 @@ export const PRODUCTS = [
     price: 237.0,
     productImage: img15,
     rating: 4.7,
+    type: "electro",
   },
 ];

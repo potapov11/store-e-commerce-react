@@ -39,6 +39,18 @@ export function Shop() {
     setDropdownText(e.target.textContent);
   }
 
+  function changeCheckBoxArr(e) {
+    setCurrentProducts(PRODUCTS);
+
+    const filteredArr = PRODUCTS.filter((item) => {
+      if (item.type === e.target.name) {
+        return item;
+      }
+    });
+
+    setCurrentProducts(filteredArr);
+  }
+
   function changeLabel() {
     setClickLabel(!clickLabel);
   }
@@ -102,7 +114,7 @@ export function Shop() {
                   <div onClick={(e) => changeDropdOwnText(e)}>{item.text}</div>
                 ))}
               </div>
-              <CheckboxSort />
+              <CheckboxSort changeCheckBoxArr={changeCheckBoxArr} />
             </div>
           </div>
           <div className="products">
