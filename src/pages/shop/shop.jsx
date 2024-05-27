@@ -15,6 +15,7 @@ export function Shop() {
   const [checkedCheckBox, setCheckedCheckBox] = useState(false);
   const [sortInputValue, setSortInputValue] = useState("");
   const [showDropDown, setShowDropDown] = useState(false);
+  const [clickLabel, setClickLabel] = useState(false);
   const [dropDownText, setDropdownText] = useState("По умолчанию");
   const [currentProducts, setCurrentProducts] = useState(PRODUCTS);
 
@@ -37,6 +38,17 @@ export function Shop() {
     setDropdownText(e.target.textContent);
   }
 
+  function changeLabel() {
+    setClickLabel(!clickLabel);
+  }
+
+  function setSortInput(e) {
+    setSortInputValue(e.target.value);
+
+    const dateFilteredProducts = PRODUCTS.filter((item) => item.productName.toLowerCase().includes(e.target.value.toLowerCase()));
+    setCurrentProducts(dateFilteredProducts);
+  }
+
   function setDateFilteredProducts(e) {
     const dateFilteredProducts = PRODUCTS.filter((item) => item.today === true);
     if (e.target.checked == true) {
@@ -56,8 +68,22 @@ export function Shop() {
         <div className="product-wrapper">
           <div className="sort-block">
             <div className="sort-inner">
+              <label>
+                <input
+                  type="checkbox"
+                  value={checkedCheckBox}
+                  onChange={(e) => {
+                    // setCheckedCheckBox(e);
+                    setDateFilteredProducts(e);
+                  }}
+                />
+                Выбрать товары с доставкой сегодня
+              </label>
               <div className="input">
-                <input placeholder="Найдите нужный товар..." className="sort-input" type="text" value={sortInputValue} onChange={(e) => setSortInput(e)} />
+                <label htmlFor="search" className={clickLabel ? "label-top" : ""} onClick={() => changeLabel()}>
+                  Найдите нужный товар...
+                </label>
+                <input name="search" id="search" className="sort-input" type="text" value={sortInputValue} onChange={(e) => setSortInput(e)} />
                 <MagnifyingGlass size={32} />
               </div>
               <div
@@ -75,17 +101,6 @@ export function Shop() {
                   <div onClick={(e) => changeDropdOwnText(e)}>{item.text}</div>
                 ))}
               </div>
-              <label>
-                <input
-                  type="checkbox"
-                  value={checkedCheckBox}
-                  onChange={(e) => {
-                    // setCheckedCheckBox(e);
-                    setDateFilteredProducts(e);
-                  }}
-                />
-              </label>
-              Выбрать товары с доставкой сегодня
             </div>
           </div>
           <div className="products">

@@ -1,0 +1,27 @@
+.footer {
+  display: flex;
+  align-items: center;
+  align-self: end;
+  justify-content: center;
+  height: 60px;
+  color: white;
+  background-color: black;
+}
+
+.footer a {
+  display: block;
+  color: white;
+  transition: all 0.5s ease;
+}
+
+.footer p {
+  width: 300px;
+  height: 57px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer a:hover {
+  display: block;
+  transform: scale(1.1);
+}

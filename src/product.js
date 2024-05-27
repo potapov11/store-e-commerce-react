@@ -6,6 +6,13 @@ import img5 from "./assets/img/5.png";
 import img6 from "./assets/img/6.webp";
 import img7 from "./assets/img/7.webp";
 import img8 from "./assets/img/8.webp";
+import img10 from "./assets/img/9.webp";
+import img11 from "./assets/img/10.webp";
+import img9 from "./assets/img/6.png";
+import img12 from "./assets/img/lamp.jpg";
+import img13 from "./assets/img/storage.jpg";
+import img14 from "./assets/img/iconical.jpg";
+import img15 from "./assets/img/watch.jpg";
 
 export const PRODUCTS = [
   {
@@ -67,5 +74,54 @@ export const PRODUCTS = [
     price: 40.0,
     productImage: img8,
     rating: 2.5,
+  },
+  {
+    id: 9,
+    productName: "BOMBER JACKET SR BK",
+    price: 63.0,
+    productImage: img9,
+    rating: 3.5,
+  },
+  {
+    id: 10,
+    productName: "Intelliskills STEAM Series Magnetic Create with Shapes",
+    price: 23.0,
+    productImage: img10,
+    rating: 4,
+  },
+  {
+    id: 11,
+    productName: "Babyhug Soft Ball Multicolor - Height 11 cm",
+    price: 13.0,
+    productImage: img11,
+    rating: 3.5,
+  },
+  {
+    id: 12,
+    productName: "Small Beside Table Lamp, Wood",
+    price: 53.0,
+    productImage: img12,
+    rating: 4.5,
+  },
+  {
+    id: 13,
+    productName: "Mkono Woven Storage Basket Decorative Rope Basket Wooden",
+    price: 33.0,
+    productImage: img13,
+    rating: 2.5,
+  },
+  {
+    id: 14,
+    productName: "Iconikal The Original Snowflake Stocking Hanger Holder",
+    price: 37.0,
+    productImage: img14,
+    rating: 5.6,
+  },
+  {
+    id: 15,
+    productName: "Apple Watch SE (2nd Gen) [GPS 40mm] Smartwatch",
+    price: 237.0,
+    productImage: img15,
+    rating: 4.7,
   },
 ];

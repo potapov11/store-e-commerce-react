@@ -4,6 +4,7 @@ import { Navbar } from "./components/navbar";
 import { Shop } from "./pages/shop/shop";
 import { Cart } from "./pages/cart/cart";
 import { Form } from "./components/form";
+import { Footer } from "./components/footer";
 import { ShopContextProvider } from "./context/shop-context";
 import React, { useRef } from "react";
 
@@ -18,6 +19,7 @@ function App() {
             <Route path="/" element={<Shop />} />
             <Route path="/cart" element={<Cart />} />
           </Routes>
+          <Footer />
         </Router>
       </ShopContextProvider>
     </div>
