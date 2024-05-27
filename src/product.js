@@ -14,6 +14,7 @@ export const PRODUCTS = [
     price: 1000,
     productImage: img1,
     rating: 4.7,
+    today: true,
   },
   {
     id: 2,
@@ -21,6 +22,7 @@ export const PRODUCTS = [
     price: 1999.0,
     productImage: img2,
     rating: 4.3,
+    today: true,
   },
   {
     id: 3,
@@ -35,6 +37,7 @@ export const PRODUCTS = [
     price: 228.0,
     productImage: img4,
     rating: 3.5,
+    today: true,
   },
   {
     id: 5,
@@ -56,6 +59,7 @@ export const PRODUCTS = [
     price: 120.0,
     productImage: img7,
     rating: 2.5,
+    today: true,
   },
   {
     id: 8,

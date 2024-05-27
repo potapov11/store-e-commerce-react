@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
-import "./shop.css";
+import React, { useEffect, useState, useRef } from "react";
 import { PRODUCTS } from "../../product";
 import { Product } from "./product";
+import { MagnifyingGlass } from "phosphor-react";
+import useOnClickOutside from "../../assets/hooks/Hook-clickoutside";
+import "./shop.css";
 const sortOptionsArr = [
   { value: "plus-sort", text: "сортировать по возрастанию цены" },
   { value: "minus-sort", text: "сортировать по убыванию цены" },
@@ -11,9 +13,14 @@ const sortOptionsArr = [
 
 export function Shop() {
   const [lastSort, setLastSort] = useState("");
+  const [checkedCheckBox, setCheckedCheckBox] = useState(false);
   const [sortInputValue, setSortInputValue] = useState("");
   const [showDropDown, setShowDropDown] = useState(false);
   const [dropDownText, setDropdownText] = useState("По умолчанию");
+  const [currentProducts, setCurrentProducts] = useState(PRODUCTS);
+
+  const refSort = useRef(null);
+  useOnClickOutside(refSort, () => setShowForm(false));
 
   function handleChange(e) {
     setLastSort(e.target.textContent, "..e.target.textContent..");
@@ -42,6 +49,7 @@ export function Shop() {
   }
 
   const filteredProducts = PRODUCTS.filter((item) => item.productName.toLowerCase().includes(sortInputValue.toLowerCase()));
+  const dateFilteredProducts = PRODUCTS.filter((item) => item.today === true);
 
   return (
     <div className="container">
@@ -52,10 +60,15 @@ export function Shop() {
         <div className="product-wrapper">
           <div className="sort-block">
             <div className="sort-inner">
+              <div className="input">
+                <input placeholder="Найдите нужный товар..." className="sort-input" type="text" value={sortInputValue} onChange={(e) => setSortInput(e)} />
+                <MagnifyingGlass size={32} />
+              </div>
               <div
                 className={showDropDown ? "sort-select _opened" : "sort-select"}
                 name="sort"
                 id="sort"
+                ref={refSort}
                 onClick={(e) => {
                   handleChange(e);
                   setShowDropDown(!showDropDown);
@@ -66,7 +79,16 @@ export function Shop() {
                   <div onClick={(e) => changeDropdOwnText(e)}>{item.text}</div>
                 ))}
               </div>
-              {/* <input placeholder="Найдите нужный товар..." className="sort-input" type="text" value={sortInputValue} onChange={(e) => setSortInput(e)} /> */}
+              <label>
+                <input
+                  type="checkbox"
+                  value={checkedCheckBox}
+                  onChange={() => {
+                    setCheckedCheckBox(!checkedCheckBox);
+                  }}
+                />
+              </label>
+              Выбрать товары с доставкой сегодня
             </div>
           </div>
           <div className="products">
