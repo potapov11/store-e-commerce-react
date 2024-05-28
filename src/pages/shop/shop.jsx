@@ -1,15 +1,11 @@
 import React, { useState, useRef } from "react";
-import { PRODUCTS } from "../../product";
+import { PRODUCTS } from "../../assets/js/product";
 import { Product } from "./product";
 import { RadioSort } from "../../components/radio-group";
 import { MagnifyingGlass } from "phosphor-react";
 import useOnClickOutside from "../../assets/hooks/Hook-clickoutside";
+import { sortOptionsArr } from "../../assets/js/sortOptionsArr";
 import "./shop.css";
-const sortOptionsArr = [
-  { value: "plus-sort", text: "сортировать по возрастанию цены" },
-  { value: "minus-sort", text: "сортировать по убыванию цены" },
-  { value: "rating-sort", text: "сортировать по рейтингу" },
-];
 
 export function Shop() {
   // const [lastSort, setLastSort] = useState("");

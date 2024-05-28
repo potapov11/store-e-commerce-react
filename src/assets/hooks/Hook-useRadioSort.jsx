@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { radioData } from "../../radioData";
+import { radioData } from "../js/radioData.js";
 
 export function useRadioSort() {
   const [radioDataArr, setradioDataArr] = useState(radioData);

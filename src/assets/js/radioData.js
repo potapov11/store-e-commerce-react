@@ -1,4 +1,4 @@
-const radioData = [
+export const radioData = [
   {
     title: "Электроника",
     name: "electro",
@@ -20,5 +20,3 @@ const radioData = [
     state: false,
   },
 ];
-
-export { radioData };

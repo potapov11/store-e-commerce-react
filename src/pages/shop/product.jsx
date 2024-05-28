@@ -1,5 +1,4 @@
 import React, { useContext, useState, useEffect } from "react";
-import star from "../../assets/img/star.svg";
 import { ShopContext } from "../../context/shop-context";
 
 export function Product(props) {

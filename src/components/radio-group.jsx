@@ -1,5 +1,5 @@
-import "./checkbox-group.css";
 import { useRadioSort } from "../assets/hooks/Hook-useRadioSort";
+import "./checkbox-group.css";
 
 export function RadioSort(props) {
   const { changeCheckBoxArr } = props;
