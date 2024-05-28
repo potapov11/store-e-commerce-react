@@ -1,27 +1,12 @@
 import "./checkbox-group.css";
-import React, { useState } from "react";
-import { radioData } from "../radioData";
+import { useRadioSort } from "../assets/hooks/Hook-useRadioSort";
 
 export function RadioSort(props) {
   const { changeCheckBoxArr } = props;
-
-  export function useRadioSort() {
-    const [radioDataArr, setradioDataArr] = useState(radioData);
-  }
-
-  function changeCheckbox(e) {
-    const updatedradioData = radioDataArr.map((item) => {
-      if (item.name === e.target.name) {
-        return { ...item, state: e.target.checked };
-      } else {
-        return { ...item, state: false };
-      }
-    });
-    setradioDataArr(updatedradioData);
-  }
+  const [radioDataArr, changeCheckbox] = useRadioSort();
 
   return (
-    <div className="radioData">
+    <div className="radio-box">
       {radioDataArr.map((item, i) => {
         return (
           <label key={i}>
