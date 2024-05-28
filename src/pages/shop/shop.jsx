@@ -3,12 +3,12 @@ import { PRODUCTS } from "../../assets/js/product";
 import { Product } from "./product";
 import { RadioSort } from "../../components/radio-group";
 import { MagnifyingGlass } from "phosphor-react";
-import useOnClickOutside from "../../assets/hooks/Hook-clickoutside";
 import { sortOptionsArr } from "../../assets/js/sortOptionsArr";
+
+import useOnClickOutside from "../../assets/hooks/Hook-clickoutside";
 import "./shop.css";
 
 export function Shop() {
-  // const [lastSort, setLastSort] = useState("");
   const [checkedCheckBox, setCheckedCheckBox] = useState(false);
   const [sortInputValue, setSortInputValue] = useState("");
   const [showDropDown, setShowDropDown] = useState(false);
@@ -19,7 +19,7 @@ export function Shop() {
   const refSort = useRef(null);
   useOnClickOutside(refSort, () => setShowDropDown(false));
 
-  function handleChange(e) {
+  function handleDropdown(e) {
     if (e.target.textContent === "сортировать по убыванию цены") {
       setCurrentProducts(PRODUCTS.sort((a, b) => a.price - b.price));
     } else if (e.target.textContent === "сортировать по возрастанию цены") {
@@ -101,7 +101,7 @@ export function Shop() {
                 id="sort"
                 ref={refSort}
                 onClick={(e) => {
-                  handleChange(e);
+                  handleDropdown(e);
                   setShowDropDown(!showDropDown);
                 }}
               >

@@ -8,8 +8,6 @@ export const ShopContext = createContext(null);
 //!<MyApp />
 //!</ShopContextProvider
 
-console.log(PRODUCTS.length);
-
 const defaultCart = () => {
   let cart = {};
   for (let i = 1; i <= PRODUCTS.length; i++) {
@@ -53,7 +51,6 @@ export function ShopContextProvider(props) {
     setCartItems((prev) => {
       // if (prev[itemId] !== undefined) {
       if (!oneProducte) {
-        console.log("if-here");
         localStorage.setItem("produtcsLS", JSON.stringify({ ...prev, [itemId]: prev[itemId] - 1 == 0 ? 1 : prev[itemId] - 1 }));
         return { ...prev, [itemId]: prev[itemId] - 1 == 0 ? 1 : prev[itemId] - 1 };
       } else {
