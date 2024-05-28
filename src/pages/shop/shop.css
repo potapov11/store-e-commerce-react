@@ -1,8 +1,9 @@
-.shopTitle {
+.shop-title {
   margin-top: 100px;
   text-align: center;
   font-size: 40px;
 }
+
 .products {
   width: 100%;
   height: auto;
@@ -205,12 +206,31 @@
     grid-template-columns: 1fr;
   }
 
-  .shopTitle {
-    font-size: 32px;
+  .product-info {
+    margin-top: 14px;
+    margin-bottom: 14px;
+  }
+
+  .shop-title {
+    position: relative;
+    top: 25px;
+    margin-top: 0;
+    font-size: 16px;
+    z-index: 1000;
+    color: white;
   }
 
   .sort-block {
+    padding-top: 90px;
     width: 90%;
     margin: 0 auto;
+  }
+
+  .sort-inner {
+    gap: 10px;
+  }
+
+  .input label {
+    padding-top: 20px;
   }
 }

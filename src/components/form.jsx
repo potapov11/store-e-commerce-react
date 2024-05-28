@@ -55,13 +55,10 @@ export function Form() {
           }, 3000);
           // enqueueSnackbar('That was easy!', { variant: 'success' });
         }
-        console.log(response);
         return response.json();
       })
       .then((data) => console.log(data));
   };
-
-  // console.log(watch('example')); // watch input value by passing the name of it
 
   return (
     <div className={showForm ? "form__modal" : "form__modal hide"}>

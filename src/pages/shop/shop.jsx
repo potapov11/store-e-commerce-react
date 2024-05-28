@@ -30,8 +30,6 @@ export function Shop() {
   }
 
   function changeDropdOwnText(e) {
-    console.log(e.target);
-    console.log(e.target.textContent);
     setDropdownText(e.target.textContent);
   }
 
@@ -71,7 +69,7 @@ export function Shop() {
   return (
     <div className="container">
       <div className="shop">
-        <div className="shopTitle">
+        <div className="shop-title">
           <h1>Tecno-shop</h1>
         </div>
         <div className="product-wrapper">
