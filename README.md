@@ -3,6 +3,7 @@
 Приложение включает в себя страницу магазина, корзину покупок и модальную форму.
 
 [![1.png](https://i.postimg.cc/0NRx3jVq/1.png)](https://postimg.cc/DSgt4vVC)
+[![Screenshot-4.png](https://i.postimg.cc/nL4ZtxW9/Screenshot-4.png)](https://postimg.cc/GBm6kWdb)
 
 >**Страница Магазина:** <br>
 >Отображает список продуктов, которые можно добавить в корзину.<br>
