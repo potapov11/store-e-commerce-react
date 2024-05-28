@@ -1,47 +1,28 @@
 import "./checkbox-group.css";
 import React, { useState } from "react";
+import { radioData } from "../radioData";
 
-const checkBoxes = [
-  {
-    title: "Электроника",
-    name: "electro",
-    state: false,
-  },
-  {
-    title: "Одежда",
-    name: "ropa",
-    state: false,
-  },
-  {
-    title: "Игрушки",
-    name: "toys",
-    state: false,
-  },
-  {
-    title: "Товары для дома",
-    name: "forhome",
-    state: false,
-  },
-];
-
-export function CheckboxSort(props) {
+export function RadioSort(props) {
   const { changeCheckBoxArr } = props;
-  const [checkBoxesArr, setCheckBoxesArr] = useState(checkBoxes);
+
+  export function useRadioSort() {
+    const [radioDataArr, setradioDataArr] = useState(radioData);
+  }
 
   function changeCheckbox(e) {
-    const updatedCheckboxes = checkBoxesArr.map((item) => {
+    const updatedradioData = radioDataArr.map((item) => {
       if (item.name === e.target.name) {
         return { ...item, state: e.target.checked };
       } else {
         return { ...item, state: false };
       }
     });
-    setCheckBoxesArr(updatedCheckboxes);
+    setradioDataArr(updatedradioData);
   }
 
   return (
-    <div className="checkboxes">
-      {checkBoxesArr.map((item, i) => {
+    <div className="radioData">
+      {radioDataArr.map((item, i) => {
         return (
           <label key={i}>
             <input
@@ -59,10 +40,4 @@ export function CheckboxSort(props) {
       })}
     </div>
   );
-}
-{
-  /* <label>
-<input type="checkbox" />
-Электроника
-</label> */
 }

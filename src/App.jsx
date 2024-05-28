@@ -6,7 +6,7 @@ import { Cart } from "./pages/cart/cart";
 import { Form } from "./components/form";
 import { Footer } from "./components/footer";
 import { ShopContextProvider } from "./context/shop-context";
-import React, { useRef } from "react";
+import React from "react";
 
 function App() {
   return (

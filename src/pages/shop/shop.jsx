@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { PRODUCTS } from "../../product";
 import { Product } from "./product";
-import { CheckboxSort } from "../../components/checkbox-group";
+import { RadioSort } from "../../components/radio-group";
 import { MagnifyingGlass } from "phosphor-react";
 import useOnClickOutside from "../../assets/hooks/Hook-clickoutside";
 import "./shop.css";
@@ -114,7 +114,7 @@ export function Shop() {
                   <div onClick={(e) => changeDropdOwnText(e)}>{item.text}</div>
                 ))}
               </div>
-              <CheckboxSort changeCheckBoxArr={changeCheckBoxArr} />
+              <RadioSort changeCheckBoxArr={changeCheckBoxArr} />
             </div>
           </div>
           <div className="products">
