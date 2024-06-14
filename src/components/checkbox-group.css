@@ -1,16 +1,41 @@
 .radio-box {
-	display: grid;
+	/* display: grid; */
+
+	display: flex;
+	gap: 10px;
+	justify-content: center;
 
 	input {
 		display: none;
 	}
 
 	label {
-		background-color: cadetblue;
 		padding: 5px;
 		display: inline-block;
 		width: 200px;
 		text-align: center;
 		border-radius: 20px;
+	}
+
+	label.active {
+		background-color: cadetblue;
+	}
+
+	.label {
+		background-color: rgb(112, 206, 209);
+	}
+}
+
+@media (max-width: 1000px) {
+	.radio-wrapper {
+		width: 140%;
+		display: flex;
+		justify-content: center;
+		scrollbar-width: none;
+		overflow: auto;
+	}
+
+	.radio-box {
+		min-width: 170%;
 	}
 }

@@ -1,146 +1,134 @@
 .shopTitle {
-  margin-top: 100px;
-  text-align: center;
-  font-size: 40px;
+	margin-top: 100px;
+	text-align: center;
+	font-size: 40px;
 }
 .products {
-  position: relative;
-  margin-top: 100px;
-  width: 100%;
-  height: auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  place-items: center;
+	position: relative;
+	margin-top: 40px;
+	width: 100%;
+	height: auto;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	place-items: center;
 }
 
 .product {
-  position: relative;
-  border-radius: 15px;
-  width: 80%;
-  margin-bottom: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+	position: relative;
+	border-radius: 15px;
+	width: 80%;
+	margin-bottom: 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .product img {
-  width: 100%;
+	width: 100%;
 }
 
 .product .description {
-  text-align: center;
+	text-align: center;
 }
 
 .product:hover {
-  transition: 0.3s ease-in;
-  cursor: pointer;
+	transition: 0.3s ease-in;
+	cursor: pointer;
 }
 
 .addToCartBttn {
-  background-color: transparent;
-  border: 2px solid rgb(19, 19, 19);
-  min-width: 100px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  border-radius: 15px;
-  transition: all 0.5s ease;
+	background-color: transparent;
+	border: 2px solid rgb(19, 19, 19);
+	min-width: 100px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-radius: 15px;
+	transition: all 0.5s ease;
 }
 
 .addToCartBttn:hover {
-  background-color: rgb(19, 19, 19);
-  color: white;
-  cursor: pointer;
+	background-color: rgb(19, 19, 19);
+	color: white;
+	cursor: pointer;
 }
 
 .amount {
-  display: flex;
+	display: flex;
 }
 
 .amount button {
-  width: 20px;
-  height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	width: 20px;
+	height: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .total-sum {
-  font-size: large;
-  font-weight: 700;
-  position: absolute;
-  bottom: -20px;
-  right: 100px;
+	font-size: large;
+	font-weight: 700;
+	position: absolute;
+	bottom: -20px;
+	right: 100px;
 }
 
 .empty-cart {
-  display: grid;
-  grid-column: 1 / -1;
-  width: 100%;
-  text-align: center;
-  font-size: 40px;
+	display: grid;
+	grid-column: 1 / -1;
+	width: 100%;
+	text-align: center;
+	font-size: 40px;
 }
 
-/* .product-one::before {
-  content: "Удалить последний товар";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-  opacity: 0.7;
-} */
-
 .inner-layer {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-  opacity: 0.7;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: white;
+	opacity: 0.7;
 }
 
 .inner-layer-show {
-  display: flex;
+	display: flex;
 }
 
 .inner-layer-hide {
-  display: none;
+	display: none;
 }
 
 .btn-group {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
+	display: flex;
+	justify-content: space-between;
+	gap: 10px;
 
-  button {
-    width: 50px;
-    cursor: pointer;
-  }
+	button {
+		width: 50px;
+		cursor: pointer;
+	}
 }
 
 @media (max-width: 760px) {
-  .products {
-    grid-template-columns: 1fr;
-  }
+	.products {
+		grid-template-columns: 1fr;
+	}
 
-  .shopTitle {
-    font-size: 32px;
-  }
+	.shopTitle {
+		font-size: 32px;
+	}
 
-  .total-sum {
-    position: fixed;
-    right: initial;
-    top: 35px;
-    color: white;
-    z-index: 3000;
-    height: fit-content;
-  }
+	.total-sum {
+		position: fixed;
+		right: initial;
+		top: 35px;
+		color: white;
+		z-index: 3000;
+		height: fit-content;
+	}
 }
