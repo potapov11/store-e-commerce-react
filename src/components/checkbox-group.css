@@ -1,3 +1,16 @@
 .radio-box {
-  display: grid;
+	display: grid;
+
+	input {
+		display: none;
+	}
+
+	label {
+		background-color: cadetblue;
+		padding: 5px;
+		display: inline-block;
+		width: 200px;
+		text-align: center;
+		border-radius: 20px;
+	}
 }
