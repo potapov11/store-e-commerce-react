@@ -201,8 +201,9 @@
 	}
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 760px) {
 	.product-wrapper {
+		margin-top: 150px;
 		overflow: hidden;
 	}
 }

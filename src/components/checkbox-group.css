@@ -30,17 +30,3 @@
 		background-color: rgb(112, 206, 209);
 	}
 }
-
-@media (max-width: 1000px) {
-	.radio-wrapper {
-		width: 140%;
-		display: flex;
-		justify-content: center;
-		scrollbar-width: none;
-		overflow: auto;
-	}
-
-	.radio-box {
-		min-width: 170%;
-	}
-}
